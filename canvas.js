@@ -29,6 +29,10 @@ function updateMu(newMu) {
 function reset() {
   heightM2 = innerHeight / 3.19; // height of second box
   distM1 = innerWidth / 3.84;  // horizontal distance of first box
+  if (innerHeight > innerWidth) { // if screen size is more vertical
+    heightM2 = innerHeight / 2.5;
+    distM1 = innerWidth / 10;
+  }
   v = 0; // reset velocity
   w1 = m1 * g;
   w2 = m2 * g;
@@ -58,14 +62,14 @@ function drawTableAndPulley() {
   c.stroke();
 
   // vertical line and box
-  c.moveTo(innerWidth / 1.89, innerHeight / 4.92);
-  c.lineTo(innerWidth / 1.89, heightM2);
+  c.moveTo(innerWidth / 1.94, innerHeight / 5.56 + innerHeight / 28.73);
+  c.lineTo(innerWidth / 1.94, heightM2);
   c.stroke();
-  c.strokeRect(innerWidth / 1.97, heightM2, innerHeight / 14.36, innerHeight / 14.36);
+  c.strokeRect(innerWidth / 2.02, heightM2, innerHeight / 14.36, innerHeight / 14.36);
   var hex2 = parseInt((((m2 / 15.0) * 130) + 125).toString());
   var hexM2 = hex2.toString(16); // color based on mass
   c.fillStyle = "#" + hexM2 + "0000";
-  c.fillRect(innerWidth / 1.97, heightM2, innerHeight / 14.36, innerHeight / 14.36);
+  c.fillRect(innerWidth / 2.02, heightM2, innerHeight / 14.36, innerHeight / 14.36);
 
   // horizontal line and box
   c.moveTo(innerWidth / 1.94 - innerHeight / 28.73, innerHeight / 5.56);
@@ -100,7 +104,7 @@ canvas.height = window.innerHeight / 1.5;
 
 var c = canvas.getContext("2d");
 
-var scale = 0.05; // otherwise it goes too fast
+var scale = 0.01; // otherwise it goes too fast
 var m1 = 7;
 var m2 = 4; // these values need to be inputs
 var g = 10;
@@ -109,8 +113,13 @@ var w2 = m2 * g;
 var mu = 0.25;
 var a = scale * ((w2 - mu * w1) / (m1 + m2));
 
+
 var heightM2 = innerHeight / 3.19; // height of second box
 var distM1 = innerWidth / 3.84;  // horizontal distance of first box
+if (innerHeight > innerWidth) { // if screen size is more vertical
+  heightM2 = innerHeight / 2.5;
+  distM1 = innerWidth / 10;
+}
 
 var v = 0;
 
@@ -119,7 +128,11 @@ drawTableAndPulley();
 function animate() {
   drawTableAndPulley();
 
-  if (a > 0 && heightM2 + innerHeight / 14.36 <= innerHeight / 1.5) { // if no acceleration or box 2 hits the ground
+  /* if no acceleration
+     or box 1 hits pulley or
+     box 2 hits the ground */
+  if (a > 0 && heightM2 + innerHeight / 14.36 <= innerHeight / 1.5 &&
+      distM1 + 5 <= innerWidth / 1.94 - innerHeight / 28.73) {
     v += a;
     heightM2 += v; // update positions
     distM1 += v;
