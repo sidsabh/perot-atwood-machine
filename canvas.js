@@ -124,8 +124,8 @@ if (innerHeight > innerWidth) { // if screen size is more vertical
 var v = 0;
 
 drawTableAndPulley();
-
-function animate() {
+console.log('animating')
+function animatePulley() {
   drawTableAndPulley();
 
   /* if no acceleration
@@ -136,7 +136,7 @@ function animate() {
     v += a;
     heightM2 += v; // update positions
     distM1 += v;
-    requestAnimationFrame(animate);
+    requestAnimationFrame(animatePulley);
   }
 
 }
