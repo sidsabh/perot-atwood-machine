@@ -25,6 +25,12 @@
     <div class="container" style="padding: 20px;">
       <div class="row">
         <div class="col">
+          <img src="img/perot.png" alt="Perot Logo">
+          <h5 class="font-weight-bold">Atwood Machine Simulator</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <canvas> </canvas>
           <script src="canvas.js"></script>
         </div>
@@ -39,33 +45,38 @@
         <div class="col">
           <label for="customRange1">Mass of Car</label>
           <input class="custom-range" type="range" id="mass1Value" min="0.1" max="8" value="3" step="0.01"
-          oninput="updateMass1(this.value)" onchange="updateMass1(this.value)">
+            oninput="updateMass1(this.value)" onchange="updateMass1(this.value)">
           <div id="initialMass1Value">3</div>
         </div>
       </div>
       <div class="row">
-          <div class="col">
-            <label for="customRange1">Mass of Weight</label>
-            <input class="custom-range" type="range" id="mass2Value" min="0.1" max="8" value="4"
-            step="0.01" oninput="updateMass2(this.value)" onchange="updateMass2(this.value)">
-            <div id="initialMass2Value">4</div>
-          </div>
+        <div class="col">
+          <label for="customRange1">Mass of Weight</label>
+          <input class="custom-range" type="range" id="mass2Value" min="0.1" max="8" value="4" step="0.01"
+            oninput="updateMass2(this.value)" onchange="updateMass2(this.value)">
+          <div id="initialMass2Value">4</div>
+        </div>
       </div>
       <div class="row">
-          <div class="col">
-            <label for="customRange1">Gravity</label>
-            <input class="custom-range" type="range" id="gravityValue" min="0.1" max="20" value="10"
-            step="0.01" oninput="updateGravity(this.value)" onchange="updateGravity(this.value)">
-            <div id="gravityVal">9.8</div>
-          </div>
+        <div class="col">
+          <label for="customRange1">Gravity</label>
+          <input class="custom-range" type="range" id="gravityValue" min="0.1" max="20" value="10" step="0.01"
+            oninput="updateGravity(this.value)" onchange="updateGravity(this.value)">
+          <div id="gravityVal">9.8</div>
+        </div>
       </div>
       <div class="row">
-          <div class="col">
-            <label for="customRange1">Coefficient of Friction</label>
-            <input class="custom-range" type="range" id="muValue" min="0" max="1" value="0.25"
-            step="0.01" oninput="updateMu(this.value)" onchange="updateMu(this.value)">
-            <div id="muVal">0.3</div>
-          </div>
+        <div class="col">
+          <label for="customRange1">Coefficient of Friction</label>
+          <input class="custom-range" type="range" id="muValue" min="0" max="1" value="0.25" step="0.01"
+            oninput="updateMu(this.value)" onchange="updateMu(this.value)">
+          <div id="muVal">0.3</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <p class="font-weight-bold">Designed and developed by: Sid Sabhnani, Aryan Pal, and Cole Tramel.</p>
+        </div>
       </div>
     </div>
   </center>
