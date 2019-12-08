@@ -21,6 +21,16 @@
 </head>
 
 <body>
+  <script type="text/javascript"> // reload page if orientation changes
+    window.onorientationchange = function() {
+        var orientation = window.orientation;
+            switch(orientation) {
+                case 0:
+                case 90:
+                case -90: window.location.reload();
+                break; } 
+    };
+    </script>
   <center>
     <div class="container" style="padding: 20px;">
       <div class="row">

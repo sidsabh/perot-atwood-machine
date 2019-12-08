@@ -94,7 +94,7 @@ function drawTableAndPulley() {
   // velocity text
   var vRounded = Math.round(v * 100) / 100;
   var vText = vRounded.toString();
-  c.fillText("Velocity: " + vText, innerWidth / 3, innerHeight / 10);
+  c.fillText("Velocity: " + vText, innerWidth / 3, innerHeight / 9);
 }
 
 var canvas = document.querySelector("canvas");
@@ -124,10 +124,6 @@ if (innerHeight > innerWidth) { // if screen size is more vertical
 var v = 0;
 
 drawTableAndPulley();
-
-jQuery('#body').on('scroll touchmove touchend touchstart contextmenu', function(e){
-  e.preventDefault();
-});
 
 function animatePulley() {
   drawTableAndPulley();
