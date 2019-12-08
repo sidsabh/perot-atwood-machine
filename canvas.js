@@ -31,7 +31,7 @@ function reset() {
   distM1 = innerWidth / 3.84;  // horizontal distance of first box
   if (innerHeight > innerWidth) { // if screen size is more vertical
     heightM2 = innerHeight / 2.5;
-    distM1 = innerWidth / 10;
+    distM1 = innerHeight / 11.49;
   }
   v = 0; // reset velocity
   w1 = m1 * g;
@@ -89,12 +89,12 @@ function drawTableAndPulley() {
     accelText = "0";
   }
   c.font = "24pt Arial";
-  c.fillText("Acceleration: " + accelText, innerWidth / 1.7, innerHeight / 8.62);
+  c.fillText("Acceleration: " + accelText, innerWidth / 3, innerHeight / 20);
 
   // velocity text
   var vRounded = Math.round(v * 100) / 100;
   var vText = vRounded.toString();
-  c.fillText("Velocity: " + vText, innerWidth / 1.7, innerHeight / 5.5);
+  c.fillText("Velocity: " + vText, innerWidth / 3, innerHeight / 10);
 }
 
 var canvas = document.querySelector("canvas");
@@ -118,15 +118,17 @@ var heightM2 = innerHeight / 3.5; // height of second box
 var distM1 = innerWidth / 3.84;  // horizontal distance of first box
 if (innerHeight > innerWidth) { // if screen size is more vertical
   heightM2 = innerHeight / 2.5;
-  distM1 = innerWidth / 10;
+  distM1 = innerHeight / 11.49;
 }
 
 var v = 0;
 
-
-
 drawTableAndPulley();
-console.log('animating')
+
+jQuery('#body').on('scroll touchmove touchend touchstart contextmenu', function(e){
+  e.preventDefault();
+});
+
 function animatePulley() {
   drawTableAndPulley();
 
