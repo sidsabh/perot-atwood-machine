@@ -123,6 +123,8 @@ if (innerHeight > innerWidth) { // if screen size is more vertical
 
 var v = 0;
 
+
+
 drawTableAndPulley();
 console.log('animating')
 function animatePulley() {
