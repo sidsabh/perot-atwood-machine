@@ -19,13 +19,17 @@
 <body>
   <canvas> </canvas>
   <script src="canvas.js"></script>
+  <br/>
+  <br/>
+  <center>
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
     type="button" id="play" onclick="animatePulley()">►</button>
   <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
     type="button" id="reset" value="Reset" onclick="reset()">↺</button>
+  <br/>
+  <br/>
   <div id="slider1">
-    <center>
-      <p class="text">Mass of Block 1 (Left)</p>
+      <p class="text">Mass of Car</p>
         <input class="mdl-slider mdl-js-slider" type="range" id="mass1Value" min="0.1" max="8" value="3"
           step="0.01" oninput="updateMass1(this.value)" onchange="updateMass1(this.value)">
         <div id="initialMass1Value">3</div>
@@ -33,7 +37,7 @@
   </div>
   <div id="slider2">
     <center>
-      <p class="text">Mass of Block 2 (Right)</p>
+      <p class="text">Mass of Weight</p>
         <input class="mdl-slider mdl-js-slider" type="range" id="mass2Value" min="0.1" max="8" value="4"
           step="0.01" oninput="updateMass2(this.value)" onchange="updateMass2(this.value)">
         <div id="initialMass2Value">4</div>
@@ -44,7 +48,7 @@
       <p class="text">Gravity</p>
         <input class="mdl-slider mdl-js-slider" type="range" id="gravityValue" min="0.1" max="20" value="10"
           step="0.01" oninput="updateGravity(this.value)" onchange="updateGravity(this.value)">
-        <div id="gravityVal">10</div>
+        <div id="gravityVal">9.8</div>
     </center>
   </div>
   <div id="slider4">
@@ -52,7 +56,7 @@
       <p class="text">Coefficient of Friction</p>
         <input class="mdl-slider mdl-js-slider" type="range" id="muValue" min="0" max="1" value="0.25"
           step="0.01" oninput="updateMu(this.value)" onchange="updateMu(this.value)">
-        <div id="muVal">0.25</div>
+        <div id="muVal">0.3</div>
     </center>
   </div>
 </body>
