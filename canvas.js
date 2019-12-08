@@ -27,7 +27,7 @@ function updateMu(newMu) {
 }
 
 function reset() {
-  heightM2 = innerHeight / 3.19; // height of second box
+  heightM2 = innerHeight / 3.5; // height of second box
   distM1 = innerWidth / 3.84;  // horizontal distance of first box
   if (innerHeight > innerWidth) { // if screen size is more vertical
     heightM2 = innerHeight / 2.5;
@@ -114,7 +114,7 @@ var mu = 0.25;
 var a = scale * ((w2 - mu * w1) / (m1 + m2));
 
 
-var heightM2 = innerHeight / 3.19; // height of second box
+var heightM2 = innerHeight / 3.5; // height of second box
 var distM1 = innerWidth / 3.84;  // horizontal distance of first box
 if (innerHeight > innerWidth) { // if screen size is more vertical
   heightM2 = innerHeight / 2.5;
