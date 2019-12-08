@@ -1,57 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Atwood Machine Simulation</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
   <!-- Stylesheets -->
   <link rel="stylesheet" type="text/css" href="static/css/styles.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+  <title>Atwood Machine Simulation</title>
 </head>
+
 <body>
-  <canvas> </canvas>
-  <script src="canvas.js"></script>
-  <br/>
-  <br/>
   <center>
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect"
-    type="button" id="play" onclick="animatePulley()">►</button>
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-    type="button" id="reset" value="Reset" onclick="reset()">↺</button>
-  <br/>
-  <br/>
-  <div id="slider1">
-      <p class="text">Mass of Car</p>
-        <input class="mdl-slider mdl-js-slider" type="range" id="mass1Value" min="0.1" max="8" value="3"
-          step="0.01" oninput="updateMass1(this.value)" onchange="updateMass1(this.value)">
-        <div id="initialMass1Value">3</div>
-    </center>
+    <div class="container" style="padding: 20px;">
+      <div class="row">
+        <div class="col">
+          <canvas> </canvas>
+          <script src="canvas.js"></script>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <button type="button" class="btn btn-outline-success" onclick="animatePulley()">►</button>
+          <button type="button" class="btn btn-outline-danger" value="Reset" onclick="reset()">↺</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="customRange1">Mass of Car</label>
+          <input class="custom-range" type="range" id="mass1Value" min="0.1" max="8" value="3" step="0.01"
+          oninput="updateMass1(this.value)" onchange="updateMass1(this.value)">
+          <div id="initialMass1Value">3</div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col">
+            <label for="customRange1">Mass of Weight</label>
+            <input class="custom-range" type="range" id="mass2Value" min="0.1" max="8" value="4"
+            step="0.01" oninput="updateMass2(this.value)" onchange="updateMass2(this.value)">
+            <div id="initialMass2Value">4</div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+            <label for="customRange1">Gravity</label>
+            <input class="custom-range" type="range" id="gravityValue" min="0.1" max="20" value="10"
+            step="0.01" oninput="updateGravity(this.value)" onchange="updateGravity(this.value)">
+            <div id="gravityVal">9.8</div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col">
+            <label for="customRange1">Coefficient of Friction</label>
+            <input class="custom-range" type="range" id="muValue" min="0" max="1" value="0.25"
+            step="0.01" oninput="updateMu(this.value)" onchange="updateMu(this.value)">
+            <div id="muVal">0.3</div>
+          </div>
+      </div>
+    </div>
+  </center>
   </div>
-  <div id="slider2">
-    <center>
-      <p class="text">Mass of Weight</p>
-        <input class="mdl-slider mdl-js-slider" type="range" id="mass2Value" min="0.1" max="8" value="4"
-          step="0.01" oninput="updateMass2(this.value)" onchange="updateMass2(this.value)">
-        <div id="initialMass2Value">4</div>
-    </center>
   </div>
-  <div id="slider3">
-    <center>
-      <p class="text">Gravity</p>
-        <input class="mdl-slider mdl-js-slider" type="range" id="gravityValue" min="0.1" max="20" value="10"
-          step="0.01" oninput="updateGravity(this.value)" onchange="updateGravity(this.value)">
-        <div id="gravityVal">9.8</div>
-    </center>
-  </div>
-  <div id="slider4">
-    <center>
-      <p class="text">Coefficient of Friction</p>
-        <input class="mdl-slider mdl-js-slider" type="range" id="muValue" min="0" max="1" value="0.25"
-          step="0.01" oninput="updateMu(this.value)" onchange="updateMu(this.value)">
-        <div id="muVal">0.3</div>
-    </center>
-  </div>
+  </center>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/popper.js@1.12.6/dist/umd/popper.js"
+    integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous">
+  </script>
+  <script src="https://unpkg.com/bootstrap-material-design@4.1.1/dist/js/bootstrap-material-design.js"
+    integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9" crossorigin="anonymous">
+  </script>
+  <script>
+    $(document).ready(function () {
+      $('body').bootstrapMaterialDesign();
+    });
+  </script>
 </body>
+
 </html>
